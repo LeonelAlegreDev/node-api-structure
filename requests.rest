@@ -1,0 +1,24 @@
+GET http://localhost:3000/
+###
+GET http://localhost:3000/users
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Nombre del usuario",
+  "email": "correo@example.com",
+  "password": "contraseña123"
+}
+###
+GET http://localhost:3000/users/123
+Authorization: f4c2a8e6df0aacf4056dc5f067e6abf0f1a9f5a31a696164bb4bfd5352a212b5
+###
+PATCH http://localhost:3000/users/123
+Content-Type: application/json
+
+{
+  "name": "Nuevo nombre del usuario"
+}
+###
+DELETE http://localhost:3000/users/123
