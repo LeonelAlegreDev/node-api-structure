@@ -4,13 +4,9 @@ const UserScheme = new mongoose.Schema({
     name: {
         type: String
     },
-    age: {
-        type: Number
-    },
     email: {
         type: String
     },
-
     password: {
         type: String
     },
@@ -19,9 +15,9 @@ const UserScheme = new mongoose.Schema({
         default: 'user'
     }
 },
-    {
-        timestamps: true,
-        versionKey: false
-    })
+{
+    timestamps: true,
+    versionKey: false
+})
 
 module.exports = mongoose.model('users', UserScheme)
