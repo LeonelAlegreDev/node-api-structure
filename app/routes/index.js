@@ -2,12 +2,15 @@ const epxress = require('express')
 const router = epxress.Router()
 const fs = require('fs')
 
+// Obtenemos la ruta del directorio actual donde se encuentra este archivo.
 const pathRouter = `${__dirname}`
 
+// Función para eliminar la extensión de un nombre de archivo.
 const removeExtension = (fileName) => {
     return fileName.split('.').shift()
 }
 
+// Leemos el contenido del directorio actual y filtramos los archivos para cargar las rutas.
 fs.readdirSync(pathRouter).filter((file) => {
     const fileWithOutExt = removeExtension(file)
     const skip = ['index'].includes(fileWithOutExt)
@@ -17,10 +20,12 @@ fs.readdirSync(pathRouter).filter((file) => {
     }
 })
 
+// Ruta de inicio del enrutador
 router.get('/', (req, res) => {
     res.send('¡Hola desde la ruta "/"!');
 });
 
+// Ruta para manejar todas las demás solicitudes que no coincidan con ninguna ruta definida.
 router.get('*', (req, res) => {
     res.status(404)
     res.send({ error: 'Not found' })
