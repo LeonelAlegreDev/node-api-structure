@@ -4,13 +4,15 @@ const cors = require('cors')
 const app = epxress()
 const { dbConnect } = require('./config/mongo')
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+
 app.use(cors())
 app.use(epxress.json())
 
 app.use('/', require('./app/routes'))
 
 dbConnect()
-app.listen(PORT, () => {
-    console.log('API lista por el puerto ', PORT)
+app.listen(PORT, HOST, () => {
+    console.log(`Servidor Node.js escuchando en http://${HOST}:${PORT}`);
 })
