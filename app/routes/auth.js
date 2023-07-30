@@ -9,11 +9,13 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     res.send("Hola desde /auth/login");
 })
+
 router.post('/login', loginCtrl)
 
 router.get('/register', (req, res) => {
     res.send("Hola desde /auth/register");
 });
+
 router.post('/register', registerCtrl)
 
 module.exports = router

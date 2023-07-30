@@ -1,14 +1,14 @@
-const jwt = require('jsonwebtoken') //TODO : 😎
+const jwt = require('jsonwebtoken')
 
-const tokenSign = async (user) => { //TODO: Genera Token
+const tokenSign = async (user) => {
     return jwt.sign(
         {
-            _id: user._id, //TODO: <---
+            _id: user._id,
             role: user.role
-        }, //TODO: Payload ! Carga útil
-        process.env.JWT_SECRET, //TODO ENV 
+        },
+        process.env.JWT_SECRET,
         {
-            expiresIn: "2h", //TODO tiempo de vida
+            expiresIn: "2h",
         }
     );
 }

@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 ###
 GET http://localhost:3000/users/123
-Authorization: f4c2a8e6df0aacf4056dc5f067e6abf0f1a9f5a31a696164bb4bfd5352a212b5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGM2YzE3NjVlZWRlYTE0MWM0NDM1MDciLCJyb2xlIjoidXNlciIsImlhdCI6MTY5MDc1OTgyOSwiZXhwIjoxNjkwNzY3MDI5fQ.ScM9lyLHBFPGcbly_jJI1wxJrWSzDzWKKLOnCme1Gv8
 ###
 PATCH http://localhost:3000/users/123
 Content-Type: application/json

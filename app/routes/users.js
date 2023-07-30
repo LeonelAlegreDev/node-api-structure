@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const checkOrigin = require('../middleware/origin')
 const checkAuth = require('../middleware/auth')
 const checkRoleAuth = require('../middleware/roleAuth')
 const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/users')
@@ -11,12 +10,12 @@ router.get('/', (req, res) => {
     res.send('GET /users');
 });
 
-//router.get('/:id', checkOrigin, getItem)
-router.get('/:id', checkOrigin, (req, res) => {
+//router.get('/:id', checkAuth, getItem)
+router.get('/:id', checkAuth, (req, res) => {
     res.send('GET /users/id');
 });
 
-//router.post('/', checkOrigin, validateCreate, createItem)
+//router.post('/', validateCreate, createItem)
 router.post('/', (req, res) =>{
     res.send('POST /users');
 });
