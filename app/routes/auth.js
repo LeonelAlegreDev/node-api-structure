@@ -2,20 +2,16 @@ const express = require('express')
 const router = express.Router()
 const { loginCtrl, registerCtrl } = require('../controlles/auth')
 
-router.get('/', (req, res) => {
-    res.send("Hola desde /auth");
-})
-
+//  auth/login
 router.get('/login', (req, res) => {
-    res.send("Hola desde /auth/login");
+    res.send("Log In");
 })
+router.post('/login', loginCtrl);
 
-router.post('/login', loginCtrl)
-
+// auth/register
 router.get('/register', (req, res) => {
-    res.send("Hola desde /auth/register");
+    res.send("Sign Up");
 });
+router.post('/register', registerCtrl);
 
-router.post('/register', registerCtrl)
-
-module.exports = router
+module.exports = router;

@@ -12,7 +12,6 @@ const checkAuth = async (req, res, next) => {
             res.send({ error: 'Acceso denegado.' })
         }
     } catch (e) {
-        console.log(e)
         res.status(409)
         res.send({ error: 'Acceso denegado.' })
     }

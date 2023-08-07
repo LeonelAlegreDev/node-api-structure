@@ -22,7 +22,7 @@ fs.readdirSync(pathRouter).filter((file) => {
 
 // Ruta de inicio del enrutador
 router.get('/', (req, res) => {
-    res.send('¡Hola desde la ruta "/"!');
+    res.send('Landing Page');
 });
 
 // Ruta para manejar todas las demás solicitudes que no coincidan con ninguna ruta definida.
