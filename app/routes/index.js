@@ -1,7 +1,7 @@
 const epxress = require('express')
 const router = epxress.Router()
 const fs = require('fs')
-const { getIndexPage } = require('../controlles/ssr/index');
+const { getIndexPage } = require('../controllers/ssr/index');
 
 
 // Obtenemos la ruta del directorio actual donde se encuentra este archivo.
@@ -22,10 +22,8 @@ fs.readdirSync(pathRouter).filter((file) => {
     }
 })
 
-// Ruta de inicio del enrutador
-router.get('/', getIndexPage, (req, res) => {
-    res.send('Landing Page');
-});
+// Ruta index
+router.get('/', getIndexPage);
 
 // Ruta para manejar todas las demás solicitudes que no coincidan con ninguna ruta definida.
 router.get('*', (req, res) => {

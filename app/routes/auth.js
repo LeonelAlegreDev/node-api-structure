@@ -1,17 +1,18 @@
 const express = require('express')
 const router = express.Router()
-const { loginCtrl, registerCtrl } = require('../controlles/auth')
+const { loginCtrl, registerCtrl } = require('../controllers/auth')
+const { getRegisterPage } = require('../controllers/ssr/auth');
 
 //  auth/login
-router.get('/login', (req, res) => {
-    res.send("Log In");
-})
+router.get('/login', (req, res) => { 
+    res.send("login");
+});
 router.post('/login', loginCtrl);
 
 // auth/register
-router.get('/register', (req, res) => {
-    res.send("Sign Up");
-});
-router.post('/register', registerCtrl);
+router.get('/register', getRegisterPage);
+
+
+router.post('/register', registerCtrl);   // temporal
 
 module.exports = router;

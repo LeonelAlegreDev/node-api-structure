@@ -1,7 +1,7 @@
 require('dotenv').config()
-const epxress = require('express')
+const express = require('express')
 const cors = require('cors')
-const app = epxress()
+const app = express()
 const { dbConnect } = require('./config/mongo')
 
 const PORT = process.env.PORT || 3000;
@@ -12,8 +12,8 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views/pages');
 
 app.use(cors());
-app.use(epxress.json());
-
+app.use(express.json());
+app.use(express.static('./app/public'));
 app.use('/', require('./app/routes'));
 
 dbConnect();

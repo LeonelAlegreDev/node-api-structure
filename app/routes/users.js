@@ -1,12 +1,13 @@
-const express = require('express')
-const router = express.Router()
-const checkAuth = require('../middleware/auth')
-const checkRoleAuth = require('../middleware/roleAuth')
-const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/users')
-const { validateCreate } = require('../validators/users')
+const express = require('express');
+const router = express.Router();
+const checkAuth = require('../middleware/auth');
+const checkRoleAuth = require('../middleware/roleAuth');
+const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controllers/api/users');
+const { getUsersPage } = require('../controllers/ssr/users');
+const { validateCreate } = require('../validators/users');
 
 //router.get('/', checkAuth, checkRoleAuth(['admin']), getItems)
-router.get('/', (req, res) => {
+router.get('/', getUsersPage, (req, res) => {
     res.send('GET /users');
 });
 

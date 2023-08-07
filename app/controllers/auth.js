@@ -35,14 +35,14 @@ const loginCtrl = async (req, res) => {
 
 const registerCtrl = async (req, res) => {
     try {
-        const { email, password, name } = req.body        
+        const { email, password, name } = req.body; 
         const passwordHash = await encrypt(password)
         const registerUser = await userModel.create({
             email,
             name,
             password: passwordHash
         })
-        res.send({ data: registerUser })
+        res.status(201).send({ message: 'Usuario creado con éxito', data: registerUser })
     } 
     catch (e) {
         httpError(res, e)

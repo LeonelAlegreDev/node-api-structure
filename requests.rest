@@ -41,7 +41,7 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "name": "Sofi",
+  "name": "Leo",
   "email": "usuario1@example.com",
   "password": "contrasenia_segura"
 }
