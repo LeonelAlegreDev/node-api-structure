@@ -7,12 +7,17 @@ const { dbConnect } = require('./config/mongo')
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 
-app.use(cors())
-app.use(epxress.json())
+// Configuración de EJS y vistas
+app.set('view engine', 'ejs');
+app.set('views', './app/views/pages');
 
-app.use('/', require('./app/routes'))
+app.use(cors());
+app.use(epxress.json());
 
-dbConnect()
+app.use('/', require('./app/routes'));
+
+dbConnect();
+
 app.listen(PORT, HOST, () => {
     console.log(`Servidor Node.js escuchando en http://${HOST}:${PORT}`);
 })
